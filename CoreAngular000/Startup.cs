@@ -12,6 +12,8 @@ using Microsoft.Extensions.Logging;
 using CoreAngular000.Data;
 using CoreAngular000.Models;
 using CoreAngular000.Services;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace CoreAngular000
 {
@@ -33,7 +35,6 @@ namespace CoreAngular000
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
         }
-
         public IConfigurationRoot Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -71,17 +72,22 @@ namespace CoreAngular000
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseDefaultFiles();
             app.UseStaticFiles();
-
-            app.UseIdentity();
-
-            // Add external authentication middleware below. To configure them please see https://go.microsoft.com/fwlink/?LinkID=532715
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "node_modules")),
+                RequestPath = "/node_modules"
+            });
 
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+
+                // in case multiple SPAs required.
+                //routes.MapSpaFallbackRoute("spa-fallback", new { controller = "home", action = "index" });
             });
         }
     }
