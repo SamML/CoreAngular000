@@ -24,7 +24,6 @@
     <Content Include="wwwroot\app\main.ts">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="wwwroot\indeex.html" />
     <Content Include="wwwroot\index.html" />
     <Content Include="wwwroot\main.js">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

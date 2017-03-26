@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent  {
     message = 'Hola amigo';
-    nombre = 'Samuel Maícas';
+    nombre = 'Samuel Maicas';
 
     evName(inputname: string) {
         this.nombre = inputname;

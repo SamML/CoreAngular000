@@ -1,17 +1,20 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<h2>This is an example of Angular 2. It seems all is working.</h2>
-<h3>You can change the greeting text</h3>
+<div  class="text-center">
+<h2>This is an example of Angular 2.</h2>
+<h3>It flows fine</h3>
+  
+<p>You can change the greeting text</p>
 <label>Nombre:</label>
- <input #box (keyup)="evName(box.value)">
+ <input placeholder="{{nombre}}" #box (keyup)="evName(box.value)">
 <label>Message:</label>
-<input #box2 (keyup)="evMessage(box2.value)">
-
+<input placeholder="{{message}}" #box2 (keyup)="evMessage(box2.value)">
+    
 
    <h1>{{ message }} {{ nombre }}</h1>
 
-
+ </div>
 
 
 

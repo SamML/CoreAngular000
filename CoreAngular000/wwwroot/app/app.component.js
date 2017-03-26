@@ -9,7 +9,7 @@ var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
         this.message = 'Hola amigo';
-        this.nombre = 'Samuel Ma�cas';
+        this.nombre = 'Samuel Maicas';
     }
     AppComponent.prototype.evName = function (inputname) {
         this.nombre = inputname;
